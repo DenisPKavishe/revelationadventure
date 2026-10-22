@@ -1,26 +1,45 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  /* Brand colors */
+  --color-brand-black: #000000;
+  --color-brand-orange: #F97316;
+  --color-brand-orange-dark: #EA580C;
+  --color-brand-green: #16A34A;
+  --color-brand-green-light: #DCFCE7;
+
+  /* Urbanist as the default sans font */
+  --font-sans: var(--font-urbanist), ui-sans-serif, system-ui, sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ---------- Force light mode only ---------- */
+html {
+  color-scheme: light;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  color: #000000;
+  background: #ffffff;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Language switcher — transparent button + orange stroke */
+.my-translate {
+  --ngt-bg: transparent;
+  --ngt-bg-hover: rgba(249, 115, 22, 0.08);
+  --ngt-border: #F97316;
+  --ngt-text: #000000;
+  --ngt-menu-bg: #ffffff;
+  --ngt-menu-border: #e5e7eb;
+  --ngt-active-bg: rgba(249, 115, 22, 0.15);
+}
+
+@keyframes slide-in {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+.animate-slide-in {
+  animation: slide-in 0.3s ease-out forwards;
 }

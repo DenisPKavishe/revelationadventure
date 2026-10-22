@@ -1,0 +1,28 @@
+import type { MetadataRoute } from "next";
+
+export default function sitemap(): MetadataRoute.Sitemap {
+  const base = "";
+  const routes = [
+    "",
+    "/about",
+    "/contact",
+    "/tours",
+    "/safaris/popular",
+    "/safaris/hot",
+    "/safaris/private",
+    "/safaris/shared",
+    "/kilimanjaro/routes",
+    "/zanzibar/tours",
+    "/zanzibar/beaches",
+    "/destinations/ngorongoro",
+    "/destinations/serengeti",
+    "/destinations/tarangire",
+    "/destinations/manyara",
+  ];
+  return routes.map((r) => ({
+    url: `${base}${r}`,
+    lastModified: new Date(),
+    changeFrequency: "weekly",
+    priority: r === "" ? 1 : 0.8,
+  }));
+}
