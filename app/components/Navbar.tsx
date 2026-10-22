@@ -36,8 +36,8 @@ export default function Navbar() {
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm">
-      <nav className="max-w-7xl mx-auto px-3 sm:px-5 lg:px-8">
+    <header className="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm overflow-visible">
+      <nav className="max-w-7xl mx-auto px-3 sm:px-5 lg:px-8 overflow-visible">
         <div className="flex items-center justify-between gap-2 h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 shrink-0 z-50">
@@ -56,12 +56,8 @@ export default function Navbar() {
 
           {/* Desktop Nav */}
           <ul className="hidden lg:flex items-center gap-3 xl:gap-5 text-black font-medium text-sm xl:text-[15px] whitespace-nowrap">
-            <li>
-              <Link href="/" className="hover:text-brand-orange transition py-5">Home</Link>
-            </li>
-            <li>
-              <Link href="/about" className="hover:text-brand-orange transition py-5">About</Link>
-            </li>
+            <li><Link href="/" className="hover:text-brand-orange transition py-5">Home</Link></li>
+            <li><Link href="/about" className="hover:text-brand-orange transition py-5">About</Link></li>
 
             {/* SAFARI MEGA MENU */}
             <li className="group">
@@ -196,18 +192,14 @@ export default function Navbar() {
               </div>
             </li>
 
-            <li>
-              <Link href="/tours" className="hover:text-brand-orange transition py-5">All Tours</Link>
-            </li>
-            <li>
-              <Link href="/contact" className="hover:text-brand-orange transition py-5">Contact</Link>
-            </li>
+            <li><Link href="/tours" className="hover:text-brand-orange transition py-5">All Tours</Link></li>
+            <li><Link href="/contact" className="hover:text-brand-orange transition py-5">Contact</Link></li>
           </ul>
 
-          {/* Right side: Language(desktop) | Cart | Language(mobile) | Menu */}
-          <div className="flex items-center gap-2 shrink-0 z-50">
-            {/* Language toggle — desktop */}
-            <div className="hidden lg:block overflow-visible relative z-[60]">
+          {/* Right side: Language (single) | Cart | Menu */}
+          <div className="flex items-center gap-2 shrink-0 z-[100]">
+            {/* Single language switcher for ALL screen sizes */}
+            <div className="relative overflow-visible z-[999]">
               <LanguageSwitcher />
             </div>
 
@@ -222,11 +214,6 @@ export default function Navbar() {
                 0
               </span>
             </Link>
-
-            {/* Language toggle — mobile (AFTER cart, BEFORE menu) */}
-            <div className="lg:hidden overflow-visible relative z-[60]">
-              <LanguageSwitcher />
-            </div>
 
             {/* Menu toggle */}
             <button

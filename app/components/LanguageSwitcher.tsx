@@ -3,7 +3,6 @@
 import "next-google-translate-widget/styles";
 import GoogleTranslate from "next-google-translate-widget";
 
-// Lugha ulizotaka, na bendera zake (ISO codes)
 const MY_LANGUAGES = [
   { label: "English", value: "en", flag: "us" },
   { label: "Español", value: "es", flag: "es" },
@@ -24,7 +23,7 @@ export default function LanguageSwitcher() {
       pageLanguage="en"
       languages={MY_LANGUAGES}
       menuAlign="right"
-      className="my-translate-widget" // Tutatumia hii kwenye CSS
+      className="my-translate-widget"
     />
   );
 }

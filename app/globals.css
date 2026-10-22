@@ -21,30 +21,45 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* ---------- Language Switcher Styling (next-google-translate-widget) ---------- */
+/* ---------- Language Switcher Styling ---------- */
 .my-translate-widget {
-  /* Kitufe (Button) */
-  --ngt-bg: #ffffff;              /* White background */
-  --ngt-bg-hover: #f9fafb;        /* Light gray on hover */
-  --ngt-border: #000000;          /* Black stroke */
-  --ngt-text: #000000;            /* Black text */
-  
-  /* Dropdown Menu */
-  --ngt-menu-bg: #ffffff;         /* White dropdown */
-  --ngt-menu-border: #e5e7eb;     /* Light gray border */
-  --ngt-active-bg: rgba(249, 115, 22, 0.15); /* Orange highlight for active */
+  position: relative;
+  z-index: 9999;
+  --ngt-bg: #ffffff;
+  --ngt-bg-hover: #f9fafb;
+  --ngt-border: #000000;
+  --ngt-text: #000000;
+  --ngt-menu-bg: #ffffff;
+  --ngt-menu-border: #e5e7eb;
+  --ngt-active-bg: rgba(249, 115, 22, 0.15);
 }
 
-/* Kurekebisha urefu wa kitufe ili kutoshea kwenye navbar */
-.my-translate-widget button {
-  padding: 6px 10px !important;
-  font-size: 14px !important;
-  border-radius: 8px !important;
-  border-width: 1px !important;
-  height: 38px !important; /* Inalingana na Cart button */
+.my-translate-widget > div {
+  position: absolute;
+  z-index: 9999 !important;
 }
 
-/* Slide-in animation for mobile filters (kama ilivyokuwa) */
+@media (max-width: 1024px) {
+  .my-translate-widget button {
+    padding: 6px 8px !important;
+    font-size: 13px !important;
+    height: 36px !important;
+    min-width: auto !important;
+  }
+
+  /* Pin the dropdown to the viewport so it can't overflow off-screen */
+  .my-translate-widget > div {
+    position: fixed !important;
+    top: 68px !important;
+    right: 8px !important;
+    left: auto !important;
+    width: min(220px, calc(100vw - 16px)) !important;
+    max-height: 70vh;
+    overflow-y: auto;
+  }
+}
+
+/* Slide-in animation for mobile filters */
 @keyframes slide-in {
   from { transform: translateX(100%); }
   to { transform: translateX(0); }
