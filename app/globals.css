@@ -35,6 +35,32 @@ body {
   --ngt-menu-border: #e5e7eb;
   --ngt-active-bg: rgba(249, 115, 22, 0.15);
 }
+/* Google Translate Widget theme override */
+.custom-google-translate .goog-te-gadget {
+  font-family: inherit !important;
+  color: transparent !important; /* Hides "Powered by Google" text */
+}
+
+.custom-google-translate .goog-te-gadget .goog-te-combo {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1.5px solid #F97316; /* Your brand orange */
+  background-color: transparent;
+  color: #000;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  outline: none;
+  cursor: pointer;
+}
+
+/* Hide the Google top banner */
+body {
+  top: 0 !important;
+}
+.skiptranslate iframe {
+  display: none !important;
+}
 
 @keyframes slide-in {
   from { transform: translateX(100%); }

@@ -1,82 +1,70 @@
-'use client';
+"use client";
 
-import { useEffect } from 'react';
+import { useEffect, useState } from "react";
 
-declare global {
-  interface Window {
-    googleTranslateElementInit?: () => void;
-    google?: {
-      translate: {
-        TranslateElement: {
-          new (
-            options: {
-              pageLanguage: string;
-              includedLanguages?: string;
-              layout?: number;
-              autoDisplay?: boolean;
-            },
-            elementId: string
-          ): void;
-          InlineLayout: {
-            SIMPLE: number;
-            HORIZONTAL: number;
-            VERTICAL: number;
-          };
-        };
-      };
-    };
-  }
+// Define custom types for the Google Translate element to avoid 'any'
+interface TranslateElementOptions {
+  pageLanguage: string;
+  includedLanguages?: string;
+  layout?: any;
+  autoDisplay?: boolean;
 }
 
-const GoogleTranslate = () => {
+interface GoogleTranslateElement {
+  new (options: TranslateElementOptions, elementId: string): void;
+  InlineLayout: {
+    SIMPLE: any;
+    HORIZONTAL: any;
+    VERTICAL: any;
+  };
+}
+
+export default function GoogleTranslate() {
+  const [loaded, setLoaded] = useState(false);
+
   useEffect(() => {
-    // Prevent multiple initializations
-    if (document.getElementById('google-translate-script')) {
+    // If the script is already loaded, don't load it again
+    if (document.getElementById("google-translate-script")) {
+      setLoaded(true);
       return;
     }
 
-    // Define the init function BEFORE loading the script
-    window.googleTranslateElementInit = () => {
-      if (!window.google?.translate?.TranslateElement) {
-        console.error('Google Translate failed to load.');
-        return;
-      }
-
-      new window.google.translate.TranslateElement(
+    // Function to initialize the widget
+    (window as any).googleTranslateElementInit = () => {
+      new (window as any).google.translate.TranslateElement(
         {
-          pageLanguage: 'en',
-          includedLanguages: 'es,fr,zh-CN,ru,de,ar,ja,it,pt,nl',
-          layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE,
+          pageLanguage: "en",
+          includedLanguages: "en,es,fr,zh-CN,ru,de,ar,ja,it,pt,nl", // English, Spanish, French, Chinese, Russian, German, Arabic, Japanese, Italian, Portuguese, Dutch
+          layout: (window as any).google.translate.TranslateElement.InlineLayout.SIMPLE,
           autoDisplay: false,
         },
-        'google_translate_element'
+        "google_translate_element"
       );
     };
 
-    // Load the script
-    const script = document.createElement('script');
-    script.id = 'google-translate-script';
-    script.src =
-      'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+    // Add the script
+    const script = document.createElement("script");
+    script.id = "google-translate-script";
+    script.src = "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
     script.async = true;
-    script.onerror = () => {
-      console.error('Failed to load Google Translate script.');
-    };
-
+    script.onload = () => setLoaded(true);
     document.body.appendChild(script);
 
     // Cleanup on unmount
     return () => {
-      // Remove init callback to avoid memory leaks
-      delete window.googleTranslateElementInit;
-
-      // Optional: Remove the script (only if you want to fully reset)
-      // const existingScript = document.getElementById('google-translate-script');
-      // if (existingScript) existingScript.remove();
+      const scriptToRemove = document.getElementById("google-translate-script");
+      if (scriptToRemove) {
+        scriptToRemove.remove();
+      }
+      // Safely delete the global initialization function
+      delete (window as any).googleTranslateElementInit;
     };
   }, []);
 
-  return <div id="google_translate_element" className="google-translate-container" />;
-};
-
-export default GoogleTranslate;
+  return (
+    <div className="flex items-center justify-center min-h-[40px]">
+      {/* This is where Google injects the language dropdown */}
+      <div id="google_translate_element" className="custom-google-translate"></div>
+    </div>
+  );
+}
