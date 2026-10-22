@@ -10,27 +10,15 @@ export const kilimanjaroRoutes: KilimanjaroRoute[] = [
     difficulty: "Challenging",
     successRate: "85%",
     summary: "The 'Whiskey Route' is the most popular route on Kilimanjaro. It offers diverse landscapes, from rainforest to alpine desert, and excellent acclimatization.",
-    highlights: [
-      "Scenic views of the Shira Plateau",
-      "Barranco Wall climb",
-      "High success rate due to gradual ascent",
-    ],
+    highlights: ["Scenic views of the Shira Plateau", "Barranco Wall climb", "High success rate due to gradual ascent"],
     itinerary: [
-      {
-        day: 1,
-        title: "Machame Gate to Machame Camp",
-        description: "Begin your trek through the lush rainforest. Keep an eye out for colobus monkeys.",
-        accommodation: "Machame Camp",
-        elevation: "1,640m to 2,850m"
-      },
-      {
-        day: 2,
-        title: "Machame Camp to Shira Camp",
-        description: "Trek through the moorland zone to the Shira Plateau. The terrain becomes steeper.",
-        accommodation: "Shira Camp",
-        elevation: "2,850m to 3,840m"
-      }
-      // Add remaining days...
+      { day: 1, title: "Machame Gate to Machame Camp", description: "Begin your trek through the lush rainforest. Keep an eye out for colobus monkeys.", accommodation: "Machame Camp", elevation: "1,640m to 2,850m" },
+      { day: 2, title: "Machame Camp to Shira Camp", description: "Trek through the moorland zone to the Shira Plateau. The terrain becomes steeper.", accommodation: "Shira Camp", elevation: "2,850m to 3,840m" },
+      { day: 3, title: "Shira Camp to Lava Tower to Barranco Camp", description: "Acclimatization day. Hike to Lava Tower (4,600m) for lunch, then descend to Barranco Camp.", accommodation: "Barranco Camp", elevation: "3,840m to 4,600m to 3,950m" },
+      { day: 4, title: "Barranco Camp to Karanga Camp", description: "Climb the famous Barranco Wall, a non-technical scramble with great views.", accommodation: "Karanga Camp", elevation: "3,950m to 4,033m" },
+      { day: 5, title: "Karanga Camp to Barafu Camp", description: "A short but steep hike to Barafu Camp, the base for your summit attempt.", accommodation: "Barafu Camp", elevation: "4,033m to 4,640m" },
+      { day: 6, title: "Summit Day: Barafu to Uhuru Peak to Mweka Camp", description: "Start around midnight for the summit. Reach Uhuru Peak (5,895m) at sunrise.", accommodation: "Mweka Camp", elevation: "4,640m to 5,895m to 3,100m" },
+      { day: 7, title: "Mweka Camp to Mweka Gate", description: "Final descent through the rainforest to Mweka Gate.", accommodation: "Hotel in Moshi", elevation: "3,100m to 1,640m" }
     ],
     inclusions: ["Park fees", "Camping gear", "Mountain guides & porters", "All meals on the mountain", "Rescue fees"],
     exclusions: ["Tips for crew", "Personal hiking gear", "Travel insurance", "Sleeping bag rental"]
@@ -44,14 +32,127 @@ export const kilimanjaroRoutes: KilimanjaroRoute[] = [
     difficulty: "Moderate",
     successRate: "65%",
     summary: "The 'Coca-Cola Route' is the only route offering hut accommodation. It is considered the easiest path, but has a lower success rate due to rapid ascent.",
-    highlights: [
-      "Sleep in comfortable A-frame huts",
-      "Gentler slopes",
-      "Shorter duration",
+    highlights: ["Sleep in comfortable A-frame huts", "Gentler slopes", "Shorter duration"],
+    itinerary: [
+      { day: 1, title: "Marangu Gate to Mandara Hut", description: "Hike through the rainforest to Mandara Hut.", accommodation: "Mandara Hut", elevation: "1,860m to 2,720m" },
+      { day: 2, title: "Mandara Hut to Horombo Hut", description: "Trek through alpine meadows with views of Mawenzi and Kibo peaks.", accommodation: "Horombo Hut", elevation: "2,720m to 3,720m" },
+      { day: 3, title: "Acclimatization Day at Horombo Hut", description: "A short hike to Zebra Rocks (3,959m) to help your body adjust.", accommodation: "Horombo Hut", elevation: "3,720m to 3,959m to 3,720m" },
+      { day: 4, title: "Horombo Hut to Kibo Hut", description: "Cross the alpine desert 'Saddle' to reach Kibo Hut.", accommodation: "Kibo Hut", elevation: "3,720m to 4,700m" },
+      { day: 5, title: "Summit Day: Kibo Hut to Uhuru Peak to Horombo Hut", description: "Start at midnight for the summit. Reach Uhuru Peak (5,895m).", accommodation: "Horombo Hut", elevation: "4,700m to 5,895m to 3,720m" },
+      { day: 6, title: "Horombo Hut to Marangu Gate", description: "Descend through the rainforest to Marangu Gate.", accommodation: "Hotel in Moshi", elevation: "3,720m to 1,860m" }
     ],
-    itinerary: [], // Fill in details
     inclusions: ["Park fees", "Hut accommodation", "Mountain guides & porters", "All meals"],
     exclusions: ["Tips for crew", "Personal gear", "Travel insurance"]
   },
-  // Add the rest: Lemosho, Rongai, Umbwe, Northern Circuit
+  {
+    slug: "machame-route-6-days",
+    title: "Machame Route – 6 Days",
+    durationDays: 6,
+    priceUSD: 1950,
+    image: "https://images.unsplash.com/photo-1522198428577-adf2e9efc653?auto=format&fit=crop&w=800&q=80",
+    difficulty: "Challenging",
+    successRate: "75%",
+    summary: "A shorter version of the popular Machame Route. It is faster and cheaper, but has less acclimatization time.",
+    highlights: ["Faster ascent", "Lower cost", "Scenic Barranco Wall"],
+    itinerary: [
+      { day: 1, title: "Machame Gate to Machame Camp", description: "Begin your trek through the rainforest.", accommodation: "Machame Camp", elevation: "1,640m to 2,850m" },
+      { day: 2, title: "Machame Camp to Shira Camp", description: "Trek to the Shira Plateau.", accommodation: "Shira Camp", elevation: "2,850m to 3,840m" },
+      { day: 3, title: "Shira Camp to Barranco Camp", description: "Hike via Lava Tower to Barranco Camp.", accommodation: "Barranco Camp", elevation: "3,840m to 3,950m" },
+      { day: 4, title: "Barranco Camp to Barafu Camp", description: "Climb the Barranco Wall and continue to Barafu Camp.", accommodation: "Barafu Camp", elevation: "3,950m to 4,640m" },
+      { day: 5, title: "Summit Day: Barafu to Uhuru Peak to Mweka Camp", description: "Reach the summit at sunrise, then descend to Mweka Camp.", accommodation: "Mweka Camp", elevation: "4,640m to 5,895m to 3,100m" },
+      { day: 6, title: "Mweka Camp to Mweka Gate", description: "Descend to Mweka Gate.", accommodation: "Hotel in Moshi", elevation: "3,100m to 1,640m" }
+    ],
+    inclusions: ["Park fees", "Camping gear", "Mountain guides & porters", "All meals"],
+    exclusions: ["Tips for crew", "Personal hiking gear", "Travel insurance"]
+  },
+  {
+    slug: "lemosho-route-8-days",
+    title: "Lemosho Route – 8 Days",
+    durationDays: 8,
+    priceUSD: 2400,
+    image: "https://images.unsplash.com/photo-1589553416260-f586c8f1514f?auto=format&fit=crop&w=800&q=80",
+    difficulty: "Challenging",
+    successRate: "90%",
+    summary: "The Lemosho Route is a beautiful and remote trail that approaches Kilimanjaro from the west. It offers excellent acclimatization and high summit success rates.",
+    highlights: ["Remote and scenic western approach", "Traverse the Shira Plateau", "High summit success rate"],
+    itinerary: [
+      { day: 1, title: "Londorossi Gate to Mti Mkubwa Camp", description: "Begin your trek through the lush rainforest.", accommodation: "Mti Mkubwa Camp", elevation: "2,350m to 2,750m" },
+      { day: 2, title: "Mti Mkubwa Camp to Shira 1 Camp", description: "Leave the rainforest and enter the moorland zone.", accommodation: "Shira 1 Camp", elevation: "2,750m to 3,550m" },
+      { day: 3, title: "Shira 1 Camp to Shira 2 Camp", description: "A gentle hike across the Shira Plateau.", accommodation: "Shira 2 Camp", elevation: "3,550m to 3,840m" },
+      { day: 4, title: "Shira 2 Camp to Lava Tower to Barranco Camp", description: "Acclimatization day. Hike to Lava Tower (4,600m) then descend to Barranco Camp.", accommodation: "Barranco Camp", elevation: "3,840m to 4,600m to 3,950m" },
+      { day: 5, title: "Barranco Camp to Karanga Camp", description: "Climb the Barranco Wall and traverse ridges to Karanga Camp.", accommodation: "Karanga Camp", elevation: "3,950m to 4,033m" },
+      { day: 6, title: "Karanga Camp to Barafu Camp", description: "A short, steep hike to Barafu Camp.", accommodation: "Barafu Camp", elevation: "4,033m to 4,640m" },
+      { day: 7, title: "Summit Day: Barafu to Uhuru Peak to Mweka Camp", description: "Midnight start for the summit. Reach Uhuru Peak (5,895m) at sunrise.", accommodation: "Mweka Camp", elevation: "4,640m to 5,895m to 3,100m" },
+      { day: 8, title: "Mweka Camp to Mweka Gate", description: "Descend through the rainforest to Mweka Gate.", accommodation: "Hotel in Moshi", elevation: "3,100m to 1,640m" }
+    ],
+    inclusions: ["Park fees", "Camping gear", "Mountain guides & porters", "All meals", "Rescue fees"],
+    exclusions: ["Tips for crew", "Personal hiking gear", "Travel insurance"]
+  },
+  {
+    slug: "rongai-route-7-days",
+    title: "Rongai Route – 7 Days",
+    durationDays: 7,
+    priceUSD: 2000,
+    image: "https://images.unsplash.com/photo-1522198428577-adf2e9efc653?auto=format&fit=crop&w=800&q=80",
+    difficulty: "Moderate",
+    successRate: "80%",
+    summary: "The Rongai Route approaches Kilimanjaro from the north, near the Kenyan border. It is one of the driest routes and is ideal for climbing during the wet season.",
+    highlights: ["Quieter northern approach", "Best route for rainy season", "Unique views of Kibo from the north"],
+    itinerary: [
+      { day: 1, title: "Rongai Gate to Simba Camp", description: "Begin your trek through the montane forest.", accommodation: "Simba Camp", elevation: "1,950m to 2,650m" },
+      { day: 2, title: "Simba Camp to Second Cave Camp", description: "Trek through the moorland zone with views of Kibo.", accommodation: "Second Cave Camp", elevation: "2,650m to 3,150m" },
+      { day: 3, title: "Second Cave Camp to Kikelewa Camp", description: "A steady climb through moorland.", accommodation: "Kikelewa Camp", elevation: "3,150m to 3,600m" },
+      { day: 4, title: "Kikelewa Camp to Mawenzi Tarn Camp", description: "Trek to Mawenzi Tarn Camp at the base of Mawenzi Peak.", accommodation: "Mawenzi Tarn Camp", elevation: "3,600m to 4,330m" },
+      { day: 5, title: "Mawenzi Tarn Camp to Kibo Camp", description: "Cross the alpine desert 'Saddle' to Kibo Camp.", accommodation: "Kibo Camp", elevation: "4,330m to 4,700m" },
+      { day: 6, title: "Summit Day: Kibo Hut to Uhuru Peak to Horombo Hut", description: "Midnight start for the summit. Descend via the Marangu Route.", accommodation: "Horombo Hut", elevation: "4,700m to 5,895m to 3,720m" },
+      { day: 7, title: "Horombo Hut to Marangu Gate", description: "Descend through the rainforest to Marangu Gate.", accommodation: "Hotel in Moshi", elevation: "3,720m to 1,860m" }
+    ],
+    inclusions: ["Park fees", "Camping gear", "Mountain guides & porters", "All meals", "Rescue fees"],
+    exclusions: ["Tips for crew", "Personal hiking gear", "Travel insurance"]
+  },
+  {
+    slug: "umbwe-route-6-days",
+    title: "Umbwe Route – 6 Days",
+    durationDays: 6,
+    priceUSD: 1950,
+    image: "https://images.unsplash.com/photo-1589553416260-f586c8f1514f?auto=format&fit=crop&w=800&q=80",
+    difficulty: "Strenuous",
+    successRate: "70%",
+    summary: "The Umbwe Route is the most physically demanding and least traveled route on Kilimanjaro. It is steep and direct, recommended only for experienced hikers.",
+    highlights: ["Steep and direct ascent", "Least crowded route", "Dramatic views from Barranco Valley"],
+    itinerary: [
+      { day: 1, title: "Umbwe Gate to Umbwe Cave Camp", description: "A steep and narrow trail through dense rainforest.", accommodation: "Umbwe Cave Camp", elevation: "1,614m to 2,850m" },
+      { day: 2, title: "Umbwe Cave Camp to Barranco Camp", description: "The trail becomes rockier with panoramic views.", accommodation: "Barranco Camp", elevation: "2,850m to 3,985m" },
+      { day: 3, title: "Barranco Camp to Karanga Camp", description: "Climb the Barranco Wall and traverse to Karanga Camp.", accommodation: "Karanga Camp", elevation: "3,985m to 4,040m" },
+      { day: 4, title: "Karanga Camp to Barafu Camp", description: "A steady ascent to Barafu Camp.", accommodation: "Barafu Camp", elevation: "4,040m to 4,681m" },
+      { day: 5, title: "Summit Day: Barafu to Uhuru Peak to Mweka Camp", description: "Midnight start for the summit. Reach Uhuru Peak (5,895m).", accommodation: "Mweka Camp", elevation: "4,681m to 5,895m to 3,100m" },
+      { day: 6, title: "Mweka Camp to Mweka Gate", description: "Descend through the rainforest to Mweka Gate.", accommodation: "Hotel in Moshi", elevation: "3,100m to 1,640m" }
+    ],
+    inclusions: ["Park fees", "Camping gear", "Mountain guides & porters", "All meals", "Rescue fees"],
+    exclusions: ["Tips for crew", "Personal hiking gear", "Travel insurance"]
+  },
+  {
+    slug: "northern-circuit-9-days",
+    title: "Northern Circuit – 9 Days",
+    durationDays: 9,
+    priceUSD: 2800,
+    image: "https://images.unsplash.com/photo-1522198428577-adf2e9efc653?auto=format&fit=crop&w=800&q=80",
+    difficulty: "Challenging",
+    successRate: "95%",
+    summary: "The Northern Circuit is the newest, longest, and most scenic route on Kilimanjaro. It circles the northern slopes, offering excellent acclimatization and the highest summit success rate.",
+    highlights: ["Highest summit success rate (95%+)", "Quiet and remote northern slopes", "Most gradual acclimatization profile"],
+    itinerary: [
+      { day: 1, title: "Londorossi Gate to Mti Mkubwa Camp", description: "Begin your trek through the rainforest.", accommodation: "Mti Mkubwa Camp", elevation: "2,350m to 2,750m" },
+      { day: 2, title: "Mti Mkubwa Camp to Shira 1 Camp", description: "Enter the moorland zone and hike to Shira 1 Camp.", accommodation: "Shira 1 Camp", elevation: "2,750m to 3,550m" },
+      { day: 3, title: "Shira 1 Camp to Shira 2 Camp", description: "A gentle hike across the Shira Plateau.", accommodation: "Shira 2 Camp", elevation: "3,550m to 3,840m" },
+      { day: 4, title: "Shira 2 Camp to Moir Hut Camp", description: "Leave the plateau and head to the remote northern side.", accommodation: "Moir Hut Camp", elevation: "3,840m to 4,200m" },
+      { day: 5, title: "Moir Hut Camp to Buffalo Camp", description: "Trek along the quiet northern slopes.", accommodation: "Buffalo Camp", elevation: "4,200m to 4,020m" },
+      { day: 6, title: "Buffalo Camp to Third Cave Camp", description: "Continue eastward along the northern circuit.", accommodation: "Third Cave Camp", elevation: "4,020m to 3,870m" },
+      { day: 7, title: "Third Cave Camp to School Hut Camp", description: "Climb to School Hut Camp, the final camp before the summit.", accommodation: "School Hut Camp", elevation: "3,870m to 4,800m" },
+      { day: 8, title: "Summit Day: School Hut to Uhuru Peak to Mweka Camp", description: "Midnight start for the summit. Reach Uhuru Peak (5,895m).", accommodation: "Mweka Camp", elevation: "4,800m to 5,895m to 3,060m" },
+      { day: 9, title: "Mweka Camp to Mweka Gate", description: "Final descent through the rainforest to Mweka Gate.", accommodation: "Hotel in Moshi", elevation: "3,060m to 1,640m" }
+    ],
+    inclusions: ["Park fees", "Camping gear", "Mountain guides & porters", "All meals", "Rescue fees"],
+    exclusions: ["Tips for crew", "Personal hiking gear", "Travel insurance"]
+  }
 ];

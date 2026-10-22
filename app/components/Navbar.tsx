@@ -24,7 +24,7 @@ const destinations: DestinationItem[] = [
   { name: "Ngorongoro", image: "https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=400&q=80", href: "/destinations/ngorongoro" },
   { name: "Serengeti", image: "https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=400&q=80", href: "/destinations/serengeti" },
   { name: "Tarangire", image: "https://images.unsplash.com/photo-1549366021-9f761d450615?auto=format&fit=crop&w=400&q=80", href: "/destinations/tarangire" },
-  { name: "Lake Manyara", image: "https://images.unsplash.com/photo-1534177616072-ef7dc1204494?auto=format&fit=crop&w=400&q=80", href: "/destinations/manyara" },
+  { name: "Lake Manyara", image: "https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=400&q=80", href: "/destinations/manyara" },
 ];
 
 export default function Navbar() {
@@ -69,11 +69,11 @@ export default function Navbar() {
                   <div>
                     <h4 className="font-bold text-brand-orange mb-3 text-xs uppercase tracking-wider">Safari Styles</h4>
                     <ul className="space-y-2 text-sm text-gray-600">
-                      <li><Link href="/tours?style=day-trips" className="hover:text-black block">Day Trips <span className="block text-xs text-gray-400 font-normal">One-day escapes</span></Link></li>
-                      <li><Link href="/tours?type=private" className="hover:text-black block">Private Safaris <span className="block text-xs text-gray-400 font-normal">Your own vehicle & guide</span></Link></li>
-                      <li><Link href="/tours?style=migration" className="hover:text-black block">Great Migration <span className="block text-xs text-gray-400 font-normal">Follow the herds</span></Link></li>
-                      <li><Link href="/tours?style=family" className="hover:text-black block">Family Safaris <span className="block text-xs text-gray-400 font-normal">Kid-friendly adventures</span></Link></li>
-                      <li><Link href="/tours?style=honeymoon" className="hover:text-black block">Honeymoon Safaris <span className="block text-xs text-gray-400 font-normal">Romantic lodges</span></Link></li>
+                      <li><Link href="/safaris/style/day-trips" className="hover:text-black block">Day Trips <span className="block text-xs text-gray-400 font-normal">One-day escapes</span></Link></li>
+                      <li><Link href="/safaris/style/private" className="hover:text-black block">Private Safaris <span className="block text-xs text-gray-400 font-normal">Your own vehicle & guide</span></Link></li>
+                      <li><Link href="/safaris/style/migration" className="hover:text-black block">Great Migration <span className="block text-xs text-gray-400 font-normal">Follow the herds</span></Link></li>
+                      <li><Link href="/safaris/style/family" className="hover:text-black block">Family Safaris <span className="block text-xs text-gray-400 font-normal">Kid-friendly adventures</span></Link></li>
+                      <li><Link href="/safaris/style/honeymoon" className="hover:text-black block">Honeymoon Safaris <span className="block text-xs text-gray-400 font-normal">Romantic lodges</span></Link></li>
                     </ul>
                   </div>
                   <div>
@@ -118,11 +118,11 @@ export default function Navbar() {
                   <div>
                     <h4 className="font-bold text-brand-orange mb-3 text-xs uppercase tracking-wider">Plan Your Climb</h4>
                     <ul className="space-y-2 text-sm text-gray-600">
-                      <li><Link href="/kilimanjaro/best-time" className="hover:text-black">Best Time to Climb</Link></li>
-                      <li><Link href="/kilimanjaro/route-comparison" className="hover:text-black">Which Route is Best?</Link></li>
-                      <li><Link href="/kilimanjaro/packing-list" className="hover:text-black">Packing List</Link></li>
-                      <li><Link href="/kilimanjaro/fitness" className="hover:text-black">Fitness & Altitude</Link></li>
-                      <li><Link href="/kilimanjaro/success-rates" className="hover:text-black">Summit Success Rates</Link></li>
+                      <li><Link href="/kilimanjaro" className="hover:text-black">Best Time to Climb</Link></li>
+                      <li><Link href="/kilimanjaro" className="hover:text-black">Which Route is Best?</Link></li>
+                      <li><Link href="/kilimanjaro" className="hover:text-black">Packing List</Link></li>
+                      <li><Link href="/kilimanjaro" className="hover:text-black">Fitness & Altitude</Link></li>
+                      <li><Link href="/kilimanjaro" className="hover:text-black">Summit Success Rates</Link></li>
                     </ul>
                   </div>
                 </div>
@@ -241,10 +241,11 @@ export default function Navbar() {
                 </button>
                 {openMobileSection === 'safari' && (
                   <div className="pl-6 py-2 space-y-3 text-sm">
-                    <Link href="/tours?style=day-trips" onClick={() => setMobileOpen(false)} className="block text-gray-600 hover:text-black">Day Trips</Link>
-                    <Link href="/tours?type=private" onClick={() => setMobileOpen(false)} className="block text-gray-600 hover:text-black">Private Safaris</Link>
-                    <Link href="/tours?style=migration" onClick={() => setMobileOpen(false)} className="block text-gray-600 hover:text-black">Great Migration Safaris</Link>
-                    <Link href="/tours?style=family" onClick={() => setMobileOpen(false)} className="block text-gray-600 hover:text-black">Family Safaris</Link>
+                    <Link href="/safaris/style/day-trips" onClick={() => setMobileOpen(false)} className="block text-gray-600 hover:text-black">Day Trips</Link>
+                    <Link href="/safaris/style/private" onClick={() => setMobileOpen(false)} className="block text-gray-600 hover:text-black">Private Safaris</Link>
+                    <Link href="/safaris/style/migration" onClick={() => setMobileOpen(false)} className="block text-gray-600 hover:text-black">Great Migration Safaris</Link>
+                    <Link href="/safaris/style/family" onClick={() => setMobileOpen(false)} className="block text-gray-600 hover:text-black">Family Safaris</Link>
+                    <Link href="/safaris/style/honeymoon" onClick={() => setMobileOpen(false)} className="block text-gray-600 hover:text-black">Honeymoon Safaris</Link>
                     <Link href="/destinations/serengeti" onClick={() => setMobileOpen(false)} className="block text-gray-600 hover:text-black font-semibold pt-2 border-t mt-2">Serengeti National Park</Link>
                     <Link href="/destinations/ngorongoro" onClick={() => setMobileOpen(false)} className="block text-gray-600 hover:text-black font-semibold">Ngorongoro Crater</Link>
                   </div>
@@ -262,10 +263,13 @@ export default function Navbar() {
                     <Link href="/kilimanjaro" onClick={() => setMobileOpen(false)} className="block text-brand-orange font-bold">View All Routes</Link>
                     <Link href="/kilimanjaro/routes/machame-route-7-days" onClick={() => setMobileOpen(false)} className="block text-gray-600 hover:text-black">Machame Route (7D)</Link>
                     <Link href="/kilimanjaro/routes/marangu-route-6-days" onClick={() => setMobileOpen(false)} className="block text-gray-600 hover:text-black">Marangu Route (6D)</Link>
+                    <Link href="/kilimanjaro/routes/machame-route-6-days" onClick={() => setMobileOpen(false)} className="block text-gray-600 hover:text-black">Machame Route (6D)</Link>
                     <Link href="/kilimanjaro/routes/lemosho-route-8-days" onClick={() => setMobileOpen(false)} className="block text-gray-600 hover:text-black">Lemosho Route (8D)</Link>
                     <Link href="/kilimanjaro/routes/rongai-route-7-days" onClick={() => setMobileOpen(false)} className="block text-gray-600 hover:text-black">Rongai Route (7D)</Link>
-                    <Link href="/kilimanjaro/best-time" onClick={() => setMobileOpen(false)} className="block text-gray-600 hover:text-black font-semibold pt-2 border-t mt-2">Best Time to Climb</Link>
-                    <Link href="/kilimanjaro/packing-list" onClick={() => setMobileOpen(false)} className="block text-gray-600 hover:text-black font-semibold">Packing List</Link>
+                    <Link href="/kilimanjaro/routes/umbwe-route-6-days" onClick={() => setMobileOpen(false)} className="block text-gray-600 hover:text-black">Umbwe Route (6D)</Link>
+                    <Link href="/kilimanjaro/routes/northern-circuit-9-days" onClick={() => setMobileOpen(false)} className="block text-gray-600 hover:text-black">Northern Circuit (9D)</Link>
+                    <Link href="/kilimanjaro" onClick={() => setMobileOpen(false)} className="block text-gray-600 hover:text-black font-semibold pt-2 border-t mt-2">Best Time to Climb</Link>
+                    <Link href="/kilimanjaro" onClick={() => setMobileOpen(false)} className="block text-gray-600 hover:text-black font-semibold">Packing List</Link>
                   </div>
                 )}
               </li>
