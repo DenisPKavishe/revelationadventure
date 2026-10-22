@@ -4,8 +4,8 @@ import { Compass, MessageCircle, Mountain, Palmtree, Phone, Search } from "lucid
 
 export default function NotFound() {
   return (
-    // Changed to calc(100vh - 64px) to fill exactly the space below the Navbar
-    <div className="relative min-h-[calc(100vh-64px)] w-full flex items-center justify-center py-16">
+    // Changed to flex-1 and removed the hardcoded min-h
+    <div className="relative flex-1 w-full flex items-center justify-center py-16 overflow-hidden">
       
       {/* Background Image - Absolute Fill */}
       <Image

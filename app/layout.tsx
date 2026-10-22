@@ -1,14 +1,20 @@
 import "./globals.css";
-import { Urbanist } from "next/font/google";
+import localFont from "next/font/local";
 import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
 import { Toaster } from "react-hot-toast";
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 
-const urbanist = Urbanist({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800"],
+// Self-hosted Urbanist font
+const urbanist = localFont({
+  src: [
+    { path: "../public/fonts/Urbanist-Regular.ttf", weight: "400", style: "normal" },
+    { path: "../public/fonts/Urbanist-Medium.ttf", weight: "500", style: "normal" },
+    { path: "../public/fonts/Urbanist-SemiBold.ttf", weight: "600", style: "normal" },
+    { path: "../public/fonts/Urbanist-Bold.ttf", weight: "700", style: "normal" },
+    { path: "../public/fonts/Urbanist-ExtraBold.ttf", weight: "800", style: "normal" },
+  ],
   variable: "--font-urbanist",
   display: "swap",
 });
