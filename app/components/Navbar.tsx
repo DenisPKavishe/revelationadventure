@@ -207,7 +207,7 @@ export default function Navbar() {
           {/* Right side: Language(desktop) | Cart | Language(mobile) | Menu */}
           <div className="flex items-center gap-2 shrink-0 z-50">
             {/* Language toggle — desktop */}
-            <div className="hidden lg:block overflow-visible">
+            <div className="hidden lg:block overflow-visible relative z-[60]">
               <LanguageSwitcher />
             </div>
 

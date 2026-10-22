@@ -1,18 +1,14 @@
 @import "tailwindcss";
 
 @theme {
-  /* Brand colors */
   --color-brand-black: #000000;
   --color-brand-orange: #F97316;
   --color-brand-orange-dark: #EA580C;
   --color-brand-green: #16A34A;
   --color-brand-green-light: #DCFCE7;
-
-  /* Urbanist as the default sans font */
   --font-sans: var(--font-urbanist), ui-sans-serif, system-ui, sans-serif;
 }
 
-/* ---------- Force light mode only ---------- */
 html {
   color-scheme: light;
 }
@@ -25,43 +21,30 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Language switcher — transparent button + orange stroke */
-.my-translate {
-  --ngt-bg: transparent;
-  --ngt-bg-hover: rgba(249, 115, 22, 0.08);
-  --ngt-border: #F97316;
-  --ngt-text: #000000;
-  --ngt-menu-bg: #ffffff;
-  --ngt-menu-border: #e5e7eb;
-  --ngt-active-bg: rgba(249, 115, 22, 0.15);
-}
-/* Google Translate Widget theme override */
-.custom-google-translate .goog-te-gadget {
-  font-family: inherit !important;
-  color: transparent !important; /* Hides "Powered by Google" text */
+/* ---------- Language Switcher Styling (next-google-translate-widget) ---------- */
+.my-translate-widget {
+  /* Kitufe (Button) */
+  --ngt-bg: #ffffff;              /* White background */
+  --ngt-bg-hover: #f9fafb;        /* Light gray on hover */
+  --ngt-border: #000000;          /* Black stroke */
+  --ngt-text: #000000;            /* Black text */
+  
+  /* Dropdown Menu */
+  --ngt-menu-bg: #ffffff;         /* White dropdown */
+  --ngt-menu-border: #e5e7eb;     /* Light gray border */
+  --ngt-active-bg: rgba(249, 115, 22, 0.15); /* Orange highlight for active */
 }
 
-.custom-google-translate .goog-te-gadget .goog-te-combo {
-  padding: 8px 12px;
-  border-radius: 8px;
-  border: 1.5px solid #F97316; /* Your brand orange */
-  background-color: transparent;
-  color: #000;
-  font-family: inherit;
-  font-size: 14px;
-  font-weight: 500;
-  outline: none;
-  cursor: pointer;
+/* Kurekebisha urefu wa kitufe ili kutoshea kwenye navbar */
+.my-translate-widget button {
+  padding: 6px 10px !important;
+  font-size: 14px !important;
+  border-radius: 8px !important;
+  border-width: 1px !important;
+  height: 38px !important; /* Inalingana na Cart button */
 }
 
-/* Hide the Google top banner */
-body {
-  top: 0 !important;
-}
-.skiptranslate iframe {
-  display: none !important;
-}
-
+/* Slide-in animation for mobile filters (kama ilivyokuwa) */
 @keyframes slide-in {
   from { transform: translateX(100%); }
   to { transform: translateX(0); }
