@@ -2,11 +2,12 @@ import "./globals.css";
 import localFont from "next/font/local";
 import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
+import FloatingCTA from "@/app/components/FloatingCTA";
 import { Toaster } from "react-hot-toast";
+import { CartProvider } from "@/app/context/CartContext";
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 
-// Self-hosted Urbanist font
 const urbanist = localFont({
   src: [
     { path: "../public/fonts/Urbanist-Regular.ttf", weight: "400", style: "normal" },
@@ -33,9 +34,12 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className={`${urbanist.variable} light`} style={{ colorScheme: "light" }}>
       <body className="min-h-screen flex flex-col bg-white text-black">
-        <Navbar />
-        <main className="flex-1">{children}</main>
-        <Footer />
+        <CartProvider>
+          <Navbar />
+          <main className="flex-1">{children}</main>
+          <Footer />
+          <FloatingCTA />
+        </CartProvider>
         <Toaster
           position="top-right"
           toastOptions={{

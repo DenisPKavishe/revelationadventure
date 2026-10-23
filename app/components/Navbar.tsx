@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ChevronDown, ShoppingCart, Menu, X, MapPin, Compass } from "lucide-react";
 import LanguageSwitcher from "./LanguageSwitcher";
+import { useCart } from "@/app/context/CartContext";
 
 // ---------- Types ----------
 interface DestinationItem {
@@ -30,6 +31,7 @@ const destinations: DestinationItem[] = [
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState<boolean>(false);
   const [openMobileSection, setOpenMobileSection] = useState<string | null>(null);
+  const { items } = useCart(); // <-- Ongeza hii
 
   const toggleMobileSection = (id: string) => {
     setOpenMobileSection(openMobileSection === id ? null : id);
@@ -203,16 +205,18 @@ export default function Navbar() {
               <LanguageSwitcher />
             </div>
 
-            {/* Safari Cart */}
+            {/* Safari Cart (Inaonyesha idadi halisi) */}
             <Link
               href="/cart"
               className="relative flex items-center gap-1.5 bg-brand-orange hover:bg-brand-orange-dark text-white font-semibold text-sm px-3 py-2 rounded-lg transition shadow whitespace-nowrap"
             >
               <ShoppingCart size={16} />
               <span className="hidden sm:inline">Cart</span>
-              <span className="absolute -top-2 -right-2 bg-brand-green text-white text-[10px] w-5 h-5 rounded-full flex items-center justify-center">
-                0
-              </span>
+              {items.length > 0 && (
+                <span className="absolute -top-2 -right-2 bg-brand-green text-white text-[10px] w-5 h-5 rounded-full flex items-center justify-center">
+                  {items.length}
+                </span>
+              )}
             </Link>
 
             {/* Menu toggle */}
