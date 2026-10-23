@@ -28,14 +28,18 @@ export default function Footer() {
             </p>
             <div className="flex gap-3 mt-4">
               <a
-                href="#"
+                href="https://www.facebook.com/share/1DEiNYrHCN/?mibextid=wwXIfr"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-9 h-9 rounded-full bg-brand-orange hover:bg-brand-orange-dark flex items-center justify-center transition"
                 aria-label="Facebook"
               >
                 <Facebook width={16} height={16} />
               </a>
               <a
-                href="#"
+                href="https://www.instagram.com/revelation_african_safaris?vrfl=aXk5MmhkcWQwMGw2"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-9 h-9 rounded-full bg-brand-orange hover:bg-brand-orange-dark flex items-center justify-center transition"
                 aria-label="Instagram"
               >

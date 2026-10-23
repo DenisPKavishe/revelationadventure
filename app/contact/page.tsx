@@ -338,14 +338,18 @@ export default function ContactPage() {
               <h3 className="font-semibold mb-3">Follow Us</h3>
               <div className="flex gap-3">
                 <a
-                  href="#"
+                  href="https://www.facebook.com/share/1DEiNYrHCN/?mibextid=wwXIfr"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label="Facebook"
                   className="w-10 h-10 rounded-full bg-brand-orange hover:bg-brand-orange-dark text-white flex items-center justify-center transition"
                 >
                   <Facebook width={18} height={18} />
                 </a>
                 <a
-                  href="#"
+                  href="https://www.instagram.com/revelation_african_safaris?vrfl=aXk5MmhkcWQwMGw2"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label="Instagram"
                   className="w-10 h-10 rounded-full bg-brand-orange hover:bg-brand-orange-dark text-white flex items-center justify-center transition"
                 >
