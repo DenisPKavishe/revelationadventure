@@ -38,9 +38,9 @@ const countryCodes = [
   { code: "+971", country: "UAE" },
 ];
 
-const WHATSAPP_NUMBER = "255700000000"; // ← your WhatsApp number, digits only, no +
-const OFFICE_EMAIL = "info@revelationafrica.com";
-const OFFICE_PHONE_DISPLAY = "+255 700 000 000";
+const WHATSAPP_NUMBER = "255757535767"; // ← your WhatsApp number, digits only, no +
+const OFFICE_EMAIL = "revelationafricansafaris@gmail.com";
+const OFFICE_PHONE_DISPLAY = "+255 757 535 767";
 
 const contactCards = [
   {
@@ -62,7 +62,7 @@ const contactCards = [
   {
     icon: Mail,
     title: "Email Us",
-    lines: [OFFICE_EMAIL, "bookings@revelationafrica.com"],
+    lines: [OFFICE_EMAIL, "revelationafricansafaris@gmail.com"],
     href: `mailto:${OFFICE_EMAIL}`,
     external: false,
     accent: "green" as const,

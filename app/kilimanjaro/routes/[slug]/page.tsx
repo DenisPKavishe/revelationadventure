@@ -94,7 +94,7 @@ export default async function KilimanjaroDetailPage({ params }: { params: Promis
             <Link href="/contact" className="block text-center w-full bg-brand-orange hover:bg-brand-orange-dark text-white font-bold py-3 rounded-lg mb-3 transition shadow">
               Book This Climb
             </Link>
-            <a href={`https://wa.me/255700000000?text=Hi, I want to climb the ${route.title}`} target="_blank" rel="noopener noreferrer" className="w-full bg-brand-green hover:bg-green-700 text-white font-bold py-3 rounded-lg flex items-center justify-center gap-2 transition">
+            <a href={`https://wa.me/255757535767?text=Hi, I want to climb the ${route.title}`} target="_blank" rel="noopener noreferrer" className="w-full bg-brand-green hover:bg-green-700 text-white font-bold py-3 rounded-lg flex items-center justify-center gap-2 transition">
               Chat on WhatsApp
             </a>
             

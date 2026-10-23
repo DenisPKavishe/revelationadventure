@@ -85,12 +85,12 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-2">
                 <Phone size={16} className="text-brand-green" />
-                <a href="tel:+255000000000" className="hover:text-white">+255 000 000 000</a>
+                <a href="tel:+255757535767" className="hover:text-white">+255 757 535 767</a>
               </li>
               <li className="flex items-center gap-2">
                 <Mail size={16} className="text-brand-green" />
-                <a href="mailto:info@revelationafricasafari.com" className="hover:text-white">
-                  info@revelationafricasafari.com
+                <a href="mailto:revelationafricansafaris@gmail.com" className="hover:text-white">
+                  revelationafricansafaris@gmail.com
                 </a>
               </li>
             </ul>

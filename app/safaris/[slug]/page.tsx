@@ -148,7 +148,7 @@ export default async function SafariDetailPage({ params }: { params: Promise<{ s
             <AddToCartButton safari={safari} />
 
             <a
-              href={`https://wa.me/255700000000?text=Hi, I am interested in the ${safari.title}`}
+              href={`https://wa.me/255757535767?text=Hi, I am interested in the ${safari.title}`}
               target="_blank"
               rel="noopener noreferrer"
               className="w-full bg-brand-green hover:bg-green-700 text-white font-bold py-3 rounded-lg flex items-center justify-center gap-2 transition"

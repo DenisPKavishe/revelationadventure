@@ -97,7 +97,7 @@ export default function FloatingCTA() {
 
             {/* Email */}
             <a
-              href={`mailto:info@revelationafrica.com?subject=${generateEmailSubject()}&body=${generateEmailBody()}`}
+              href={`mailto:revelationafricansafaris@gmail.com?subject=${generateEmailSubject()}&body=${generateEmailBody()}`}
               className="flex items-center gap-3 w-full bg-gray-100 hover:bg-gray-200 text-black font-semibold py-3 px-4 rounded-xl transition"
             >
               <div className="bg-brand-orange/10 text-brand-orange p-2 rounded-lg">

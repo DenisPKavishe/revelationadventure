@@ -17,7 +17,7 @@ export async function POST(req: Request) {
 
     await transporter.sendMail({
       from: `"Revelation Africa Safari" <${process.env.SMTP_USER}>`,
-      to: "info@revelationafrica.com",
+      to: "revelationafricansafaris@gmail.com",
       replyTo: form.email,
       subject: `Quote Request from ${form.name}`,
       html: `

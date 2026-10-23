@@ -281,7 +281,7 @@ export default function Home() {
               <Link href="/contact" className="bg-white text-brand-orange font-bold px-8 py-4 rounded-xl hover:bg-gray-100 transition shadow-lg text-lg">
                 Start Planning
               </Link>
-              <a href="https://wa.me/255700000000" target="_blank" rel="noopener noreferrer" className="bg-black/20 hover:bg-black/30 border border-white/30 text-white font-bold px-8 py-4 rounded-xl transition text-lg backdrop-blur-sm">
+              <a href="https://wa.me/255757535767" target="_blank" rel="noopener noreferrer" className="bg-black/20 hover:bg-black/30 border border-white/30 text-white font-bold px-8 py-4 rounded-xl transition text-lg backdrop-blur-sm">
                 Chat on WhatsApp
               </a>
             </div>

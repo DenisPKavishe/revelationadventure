@@ -81,7 +81,7 @@ export default function NotFound() {
 
         {/* Help Link */}
         <p className="mt-8 text-sm text-white/60">
-          Still lost? <a href="https://wa.me/255700000000" target="_blank" rel="noopener noreferrer" className="text-brand-orange hover:underline font-semibold inline-flex items-center gap-1"><MessageCircle size={14} /> Chat with our team</a>
+          Still lost? <a href="https://wa.me/255757535767" target="_blank" rel="noopener noreferrer" className="text-brand-orange hover:underline font-semibold inline-flex items-center gap-1"><MessageCircle size={14} /> Chat with our team</a>
         </p>
 
       </div>
