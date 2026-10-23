@@ -29,6 +29,26 @@ export interface SafariPackage {
   exclusions: string[];
 }
 
+// Minimal shape needed to add any package type to the cart
+export type CartablePackage = {
+  slug: string;
+  title: string;
+  durationDays: number;
+  durationNights: number;
+  priceUSD: number;
+  image: string;
+  destinations: string[];
+  itinerary: {
+    day: number;
+    title: string;
+    description: string;
+    accommodation: string;
+    meals: string;
+  }[];
+  inclusions: string[];
+  exclusions: string[];
+};
+
 export interface Accommodation {
   slug: string;
   name: string;
@@ -37,7 +57,6 @@ export interface Accommodation {
   amenities: string[];
   images: string[];
 }
-
 
 export interface KilimanjaroRoute {
   slug: string;

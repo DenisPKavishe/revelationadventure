@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import {
   MapPin,
   Phone,
@@ -10,35 +10,13 @@ import {
   Users,
   Plane,
   ShieldCheck,
+  Search,
 } from "lucide-react";
 import toast from "react-hot-toast";
 import { Facebook, Instagram, Twitter } from "@/app/components/BrandIcons";
+import { countryCodes } from "@/data/countryCodes";
 
-// ---------- Country codes ----------
-const countryCodes = [
-  { code: "+255", country: "Tanzania" },
-  { code: "+254", country: "Kenya" },
-  { code: "+256", country: "Uganda" },
-  { code: "+250", country: "Rwanda" },
-  { code: "+257", country: "Burundi" },
-  { code: "+243", country: "DR Congo" },
-  { code: "+27", country: "South Africa" },
-  { code: "+1", country: "USA / Canada" },
-  { code: "+44", country: "United Kingdom" },
-  { code: "+33", country: "France" },
-  { code: "+34", country: "Spain" },
-  { code: "+39", country: "Italy" },
-  { code: "+49", country: "Germany" },
-  { code: "+31", country: "Netherlands" },
-  { code: "+351", country: "Portugal" },
-  { code: "+7", country: "Russia" },
-  { code: "+86", country: "China" },
-  { code: "+81", country: "Japan" },
-  { code: "+966", country: "Saudi Arabia" },
-  { code: "+971", country: "UAE" },
-];
-
-const WHATSAPP_NUMBER = "255757535767"; // ← your WhatsApp number, digits only, no +
+const WHATSAPP_NUMBER = "255757535767";
 const OFFICE_EMAIL = "revelationafricansafaris@gmail.com";
 const OFFICE_PHONE_DISPLAY = "+255 757 535 767";
 
@@ -107,6 +85,21 @@ export default function ContactPage() {
     message: "",
   });
   const [loading, setLoading] = useState(false);
+
+  // Country code search filter state
+  const [countrySearch, setCountrySearch] = useState("");
+  const [showCountryDropdown, setShowCountryDropdown] = useState(false);
+
+  const filteredCountries = useMemo(() => {
+    if (!countrySearch.trim()) return countryCodes;
+    const q = countrySearch.toLowerCase();
+    return countryCodes.filter(
+      (c) =>
+        c.country.toLowerCase().includes(q) || c.code.includes(q)
+    );
+  }, [countrySearch]);
+
+  const selectedCountry = countryCodes.find((c) => c.code === form.countryCode);
 
   const update = (key: keyof typeof form, value: string) =>
     setForm((prev) => ({ ...prev, [key]: value }));
@@ -180,8 +173,9 @@ export default function ContactPage() {
                 </div>
                 <h3 className="font-semibold text-lg">{card.title}</h3>
                 <ul className="text-sm text-gray-600 space-y-1">
-                  {card.lines.map((line) => (
-                    <li key={line}>{line}</li>
+                  {/* FIX: Tumia index kwa key ili kuepuka duplicate keys */}
+                  {card.lines.map((line, index) => (
+                    <li key={`${card.title}-${index}`}>{line}</li>
                   ))}
                 </ul>
               </a>
@@ -233,32 +227,81 @@ export default function ContactPage() {
               </div>
 
               <div className="grid sm:grid-cols-2 gap-4">
+                {/* Phone with searchable country code */}
                 <div>
                   <label htmlFor="phone" className="block text-sm font-medium mb-1">
                     Phone Number
                   </label>
-                  <div className="flex gap-2">
-                    <select
-                      value={form.countryCode}
-                      onChange={(e) => update("countryCode", e.target.value)}
-                      className="w-32 rounded-lg border border-gray-300 px-2 py-2.5 text-sm outline-none focus:border-brand-orange focus:ring-2 focus:ring-brand-orange/20 transition bg-white"
-                    >
-                      {countryCodes.map((c) => (
-                        <option key={c.code} value={c.code}>
-                          {c.code} ({c.country})
-                        </option>
-                      ))}
-                    </select>
-                    <input
-                      id="phone"
-                      type="tel"
-                      value={form.phone}
-                      onChange={(e) => update("phone", e.target.value)}
-                      placeholder="700 000 000"
-                      className="flex-1 rounded-lg border border-gray-300 px-3 py-2.5 text-sm outline-none focus:border-brand-orange focus:ring-2 focus:ring-brand-orange/20 transition"
-                    />
+
+                  <div className="relative">
+                    <div className="flex gap-2">
+                      <div className="relative w-32">
+                        <button
+                          type="button"
+                          onClick={() => setShowCountryDropdown(!showCountryDropdown)}
+                          className="w-full rounded-lg border border-gray-300 px-2 py-2.5 text-sm text-left flex items-center justify-between bg-white"
+                        >
+                          <span className="truncate">
+                            {selectedCountry?.code || "+255"}
+                          </span>
+                          <Search size={14} className="text-gray-400 shrink-0" />
+                        </button>
+                      </div>
+                      <input
+                        id="phone"
+                        type="tel"
+                        value={form.phone}
+                        onChange={(e) => update("phone", e.target.value)}
+                        placeholder="700 000 000"
+                        className="flex-1 rounded-lg border border-gray-300 px-3 py-2.5 text-sm outline-none focus:border-brand-orange focus:ring-2 focus:ring-brand-orange/20 transition"
+                      />
+                    </div>
+
+                    {/* Dropdown ya nchi zenye search */}
+                    {showCountryDropdown && (
+                      <div className="absolute top-full left-0 mt-1 w-full bg-white border border-gray-200 rounded-lg shadow-lg z-50 max-h-64 overflow-hidden flex flex-col">
+                        <div className="p-2 border-b border-gray-100">
+                          <input
+                            type="text"
+                            value={countrySearch}
+                            onChange={(e) => setCountrySearch(e.target.value)}
+                            placeholder="Search country or code..."
+                            className="w-full rounded-md border border-gray-300 px-3 py-1.5 text-sm outline-none"
+                            autoFocus
+                          />
+                        </div>
+                        <ul className="overflow-y-auto">
+                          {filteredCountries.length === 0 && (
+                            <li className="px-4 py-3 text-sm text-gray-500">
+                              No results
+                            </li>
+                          )}
+                          {filteredCountries.map((c) => (
+                            <li key={`${c.code}-${c.country}`}>
+                              <button
+                                type="button"
+                                onClick={() => {
+                                  update("countryCode", c.code);
+                                  setShowCountryDropdown(false);
+                                  setCountrySearch("");
+                                }}
+                                className={`w-full text-left px-4 py-2 text-sm hover:bg-brand-green-light transition ${
+                                  form.countryCode === c.code
+                                    ? "bg-brand-green-light font-semibold"
+                                    : ""
+                                }`}
+                              >
+                                <span className="font-medium">{c.code}</span>{" "}
+                                <span className="text-gray-600">{c.country}</span>
+                              </button>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
                   </div>
                 </div>
+
                 <div>
                   <label htmlFor="subject" className="block text-sm font-medium mb-1">
                     Subject

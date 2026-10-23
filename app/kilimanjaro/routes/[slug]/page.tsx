@@ -1,8 +1,8 @@
 import Image from "next/image";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import { kilimanjaroRoutes } from "@/data/kilimanjaro";
 import { MapPin, Clock, TrendingUp, CheckCircle2, XCircle, Mountain } from "lucide-react";
+import AddToCartButton from "@/app/components/AddToCartButton";
 
 export default async function KilimanjaroDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
@@ -91,9 +91,7 @@ export default async function KilimanjaroDetailPage({ params }: { params: Promis
             <p className="text-gray-500 text-sm">Price per person</p>
             <p className="text-4xl font-extrabold text-brand-orange mb-6">${route.priceUSD.toLocaleString()}</p>
             
-            <Link href="/contact" className="block text-center w-full bg-brand-orange hover:bg-brand-orange-dark text-white font-bold py-3 rounded-lg mb-3 transition shadow">
-              Book This Climb
-            </Link>
+            <AddToCartButton safari={route} />
             <a href={`https://wa.me/255757535767?text=Hi, I want to climb the ${route.title}`} target="_blank" rel="noopener noreferrer" className="w-full bg-brand-green hover:bg-green-700 text-white font-bold py-3 rounded-lg flex items-center justify-center gap-2 transition">
               Chat on WhatsApp
             </a>

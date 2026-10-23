@@ -1,8 +1,8 @@
 import Image from "next/image";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import { zanzibarHolidays, zanzibarExcursions } from "@/data/zanzibar";
 import { MapPin, Clock, CheckCircle2, XCircle, ChevronDown } from "lucide-react";
+import AddToCartButton from "@/app/components/AddToCartButton";
 
 export default async function ZanzibarDetailPage({ 
   params 
@@ -109,9 +109,7 @@ export default async function ZanzibarDetailPage({
             <p className="text-gray-500 text-sm">Price per person</p>
             <p className="text-4xl font-extrabold text-brand-orange mb-6">${pkg.priceUSD.toLocaleString()}</p>
             
-            <Link href="/contact" className="block text-center w-full bg-brand-orange hover:bg-brand-orange-dark text-white font-bold py-3 rounded-lg mb-3 transition shadow">
-              Book This {isHoliday ? "Holiday" : "Excursion"}
-            </Link>
+            <AddToCartButton safari={pkg} />
             <a href={`https://wa.me/255757535767?text=Hi, I am interested in the ${pkg.title}`} target="_blank" rel="noopener noreferrer" className="w-full bg-brand-green hover:bg-green-700 text-white font-bold py-3 rounded-lg flex items-center justify-center gap-2 transition">
               Chat on WhatsApp
             </a>
