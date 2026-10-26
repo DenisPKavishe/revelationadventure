@@ -21,7 +21,7 @@ export interface SafariPackage {
   priceUSD: number;
   image: string;
   summary: string;
-  destinations: string[]; 
+  destinations: string[];
   travelStyles: string[];
   highlights: string[];
   itinerary: ItineraryDay[];
@@ -29,7 +29,7 @@ export interface SafariPackage {
   exclusions: string[];
 }
 
-// Minimal shape needed to add any package type to the cart
+/* ---------- CARTABLE SHAPE ---------- */
 export type CartablePackage = {
   slug: string;
   title: string;
@@ -58,40 +58,48 @@ export interface Accommodation {
   images: string[];
 }
 
+/* ---------- KILIMANJARO ---------- */
 export interface KilimanjaroRoute {
   slug: string;
   title: string;
   durationDays: number;
+  durationNights: number;
   priceUSD: number;
   image: string;
   difficulty: KilimanjaroDifficulty;
   successRate: string;
   summary: string;
+  destinations: string[];
   highlights: string[];
   itinerary: {
     day: number;
     title: string;
     description: string;
     accommodation: string;
-    elevation: string; // e.g., "2,700m to 3,000m"
+    meals: string;
+    elevation: string;
   }[];
   inclusions: string[];
   exclusions: string[];
 }
 
+/* ---------- ZANZIBAR ---------- */
 export interface ZanzibarPackage {
   slug: string;
   title: string;
   durationDays: number;
+  durationNights: number;
   priceUSD: number;
   image: string;
   summary: string;
+  destinations: string[];
   highlights: string[];
   itinerary: {
     day: number;
     title: string;
     description: string;
     accommodation: string;
+    meals: string;
   }[];
   inclusions: string[];
   exclusions: string[];
